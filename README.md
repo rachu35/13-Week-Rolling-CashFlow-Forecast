@@ -1,11 +1,8 @@
 ### 🪴 Problem Statement
 
-In my previous finance role, I noticed that traditional cash monitoring tends to be reactive — a pain point common among SMEs. Finance teams check the current bank balance and react only when problems arise, often discovering cash shortfalls after they've already happened. This forces last-minute scrambles like emergency overdrafts or delayed vendor payments, which can damage supplier relationships and credit standing.
+In my previous finance role, I noticed that traditional cash monitoring tends to be reactive, I think it's a pain point common among SMEs. Finance teams check the current bank balance and react only when problems arise, often discovering cash shortfalls after they've already happened. This forces last-minute scrambles like emergency overdrafts or delayed vendor payments, which can damage supplier relationships and credit standing. The real question finance needs answered isn't "how much cash do we have today?" It's: **Will we have enough cash two weeks from now?**
 
-The real question finance needs answered isn't "how much cash do we have today?" It's:  
-**Will we have enough cash two weeks from now?**
-
-Answering that requires tracking cash coming in and going out day by day — laying out AR collections and AP obligations across a forward-looking timeline. This is something a single balance figure can't show.
+Answering that requires tracking cash coming in and going out day by day and laying out AR collections and AP obligations across a forward-looking timeline. This is something a single balance figure can't show.
 
 ### 🪴 My idea about this project
 Build a 13-week rolling cash flow forecast that shifts finance from reactive balance-checking to proactive risk management:
