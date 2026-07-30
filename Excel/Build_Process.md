@@ -17,14 +17,23 @@
 *💧 Explanation of each sheet*
 
 - AR_detail: Simulates an ERP accounts receivable export
+  - `Due_Date`: Auto-calculated from `Invoice_Date` using an IFS formula based on `Payment_Terms` (different logic for EM vs. OA terms)
+  - `Collection_Probability`: Pulled via VLOOKUP from Customer_list, based on the customer's payment tier
+  - `Status`: Open (not yet due) / Collected (payment received) / Overdue (past due, not yet collected)
+  - `Expected_Collection_Date`: Uses the actual collection date if already collected; the due date if not yet due; and for overdue invoices, estimates "due date + customer's typical delay days × scenario multiplier"
+  - `Scenario_Adjusted_Probability`: Base collection probability plus a scenario adjustment, reflecting how collection likelihood shifts under Best/Base/Worst scenarios
+  - Screenshot
+    <img width="1202" height="193" alt="image" src="https://github.com/user-attachments/assets/10d073d1-e6da-4ef1-aadb-28be9cd63136" />
+
+- AP_detail: Simulates an ERP accounts payable export
   - `Due_Date`: Same IFS-formula approach based on `Payment_Terms`
   - `Priority`: Pulled via VLOOKUP from Vendor_list, based on the vendor's priority tier
   - `Status`: Open (not yet due) / Paid (payment made) / Overdue (past due, not yet paid)
   - `Expected_Payment_Date`: Uses the actual payment date if already paid; the due date if not yet due; and for overdue bills, estimates "due date + vendor's typical delay days × scenario multiplier"
   - Screenshot
-    <img width="1202" height="193" alt="image" src="https://github.com/user-attachments/assets/10d073d1-e6da-4ef1-aadb-28be9cd63136" />
+    <img width="1047" height="184" alt="image" src="https://github.com/user-attachments/assets/cf4050e6-8583-4e4a-ada1-729137fbac56" />
 
-- AP_detail: Simulates an ERP accounts payable export
+
 - Customer_list: Customer master table that drives the collection assumptions in AR_detail
 - Vendor_list: Vendor master table that drives the payment scheduling assumptions in AP_detail
 
