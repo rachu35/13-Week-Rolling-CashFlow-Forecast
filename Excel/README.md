@@ -4,7 +4,6 @@
 **🌱 Simulated data logic**
 - AR/AP detail tables simulate raw transaction exports from an ERP system, with fields covering invoice/bill dates, due dates (auto-calculated from payment terms via an IFS formula), amounts, and status
 - Customers/vendors are tiered by payment behavior **(Good/Average/Poor for customers & High/Medium/Low Priority for vendors)**, with credit tier driving collection probability and typical delay days, so the data has internal logic rather than being independently randomized
-  <img width="1204" height="283" alt="image" src="https://github.com/user-attachments/assets/666f93e9-7196-41ac-8d0e-27d1f40a0b71" />
 <br>
 
 **🌱 Issues identified and fixed during development**
@@ -12,11 +11,15 @@
 2. **Payment dates shouldn't be random**: In practice, both AP and AR run on fixed batch payment cycles (e.g., the 10th and 25th of each month), not on arbitrary days. Adjusted the model so each customer/vendor is tied to a fixed set of payment-run days.
 3. **Field labels not matching actual content**: Caught a case where the Vendor_Code and Vendor_Name column headers were swapped — a reminder to verify each column's actual content against its label rather than assuming the header is correct.
 4. **Logical consistency checks**: Ensured Status (Open/Collected/Overdue) always lines up with Actual_Collection_Date/Actual_Payment_Date, so there are no contradictions like a row marked "Open" that still shows a collection date.
+<br>
 
 **🌱 Modeling Assumptions**
 - 13-week rolling forecast, calculated forward from the as-of date — consistent with the industry-standard "13-week cash flow" approach
 - AR inflows are probability-weighted (Amount × Collection_Probability) to avoid overstating expected cash in; AP outflows are counted in full, since a payment obligation isn't probabilistic — it's a question of timing, not likelihood
 - Best/Base/Worst scenarios are driven by three adjustable parameters: collection probability adjustment, customer delay multiplier, and a company-controlled AP payment-stretch multiplier. AP stretching is a deliberate, controllable lever (the company can choose to slow vendor payments to preserve cash), while AR delay is an external risk conceptually different, but both are captured as scenario inputs
+  
+  <img width="1204" height="283" alt="image" src="https://github.com/user-attachments/assets/666f93e9-7196-41ac-8d0e-27d1f40a0b71" />
+<br>
 
 **🌱 Known Limitations**
 - Data is simulated, not sourced from a real company; collection/payment behavior patterns are based on reasonable business assumptions
