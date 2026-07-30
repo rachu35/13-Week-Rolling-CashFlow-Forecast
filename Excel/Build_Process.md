@@ -75,8 +75,26 @@
 - Status logic (Open/Collected/Overdue) is also sourced directly from the ERP export, same as Invoice_ID and Amount — it reflects the actual transaction state rather than being a calculated field.
 <br>
 
-**🌱 Step 4: Weekly rollup**  
-Built the Weekly_Cash_Flow_Summary sheet: 13-week buckets, SUMPRODUCT-based AR inflow (probability-weighted) and AP outflow calculations, and a rolling Ending Balance with a below-threshold flag.
+**🌱 Step 4: Weekly_Cash_Flow_Summary: 13-week buckets**  
+- Assumption inputs:
+  - `As of Date`: The reference date the whole forecast is built from — all 13 weeks are calculated forward from this date
+  - `Beginning Cash`: Starting cash balance. Currently a placeholder value, to be replaced once the Cash_Balance table is built
+  - `Min Cash Threshold`: The minimum cash level the company wants to stay above. Any week where Ending Balance falls below this gets flagged
+  - `Scenario`: Dropdown selector (Best/Base/Worst) that drives the three parameters below
+  - `Probability_Adjustment`: How much the base collection probability shifts under the selected scenario (e.g., +5% in Best case)
+  - `AR_Delay_Multiplier`: How much longer (or shorter) overdue customers take to pay under the selected scenario, relative to their typical delay
+  - `AP_Stretch_Multiplier`: How much the company deliberately stretches out vendor payments under the selected scenario, to preserve cash
+- Weekly table
+  - `Week`: Week number, 1 through 13
+  - `Week Start / Week End`: The 7-day date range for that week
+  - `Inflow(AR)`: Total expected cash coming in that week, probability-weighted by Scenario_Adjusted_Probability
+  - `Outflow(AP)`: Total cash owed to vendors that week, counted in full (not probability-weighted)
+  - `Net Cash Flow`: Inflow(AR) minus Outflow(AP)
+  - `Ending Bal`: Running cash balance — prior week's Ending Bal plus this week's Net Cash Flow
+  - `Below Threshold` Flags "WARNING" if Ending Bal drops below Min Cash Threshold, otherwise "OK"
+
+
+  
 <br>
 
 **🌱 Step 5: Scenario modeling**  
