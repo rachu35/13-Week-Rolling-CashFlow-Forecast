@@ -48,7 +48,21 @@
 <br>
 
 **🌱 Step 3: Core formula logic**  
-Built the Due_Date calculation (IFS formula based on payment terms), Collection_Probability, and status logic (Open/Collected/Overdue) with cross-sheet lookups back to the Customer_list/Vendor_list tables.
+- Due_Date calculation
+  - If ERP data doesn't have this colunm, using "IFS" formula based on payment terms"
+    ```excel
+    =IFS(G2="EM15",EOMONTH(E2,0)+15, G2="EM30",EOMONTH(E2,0)+30, G2="EM45",EOMONTH(E2,0)+45, G2="EM60",EOMONTH(E2,0)+60, G2="OA15",E2+15, G2="OA30",E2+30, G2="OA60",E2+60 )
+    ```
+    <img width="1257" height="102" alt="image" src="https://github.com/user-attachments/assets/908edde7-ed58-4ef7-9298-9920c04de502" />
+   - If ERP data has this colunm, just copy & paste
+- Collection_Probability
+  - This is only for AR part. The collection prob means how much prob we can receive the money and avoid be bad debts
+    ```excel
+    =INDEX(Customer_list!$G$2:$G$21,MATCH(B2,Customer_list!$B$2:$B$21,0))
+    ```
+    <img width="1224" height="117" alt="image" src="https://github.com/user-attachments/assets/5b8e054b-692f-4e30-be14-a6e8afd5f32c" />
+
+- Status logic (Open/Collected/Overdue) with cross-sheet lookups back to the Customer_list/Vendor_list tables
 <br>
 
 **🌱 Step 4: Weekly rollup**  
