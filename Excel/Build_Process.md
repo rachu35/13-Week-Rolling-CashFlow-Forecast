@@ -33,46 +33,32 @@
   - Screenshot
     <img width="1047" height="184" alt="image" src="https://github.com/user-attachments/assets/cf4050e6-8583-4e4a-ada1-729137fbac56" />
 
-
 - Customer_list: Customer master table that drives the collection assumptions in AR_detail
   - `Payment Habit` (Good/Average/Poor): Tiered by historical payment behavior
   - `Collection_Probability` / `Typical_Delay_Days`: Auto-populated from a tier lookup table (Habit → Base_Probability → Typical_Delay_Days), ensuring customers in the same tier are treated consistently rather than being set independently
   - Screenshot
     <img width="1024" height="100" alt="image" src="https://github.com/user-attachments/assets/1ca9ee43-7817-4ad9-8d9f-0b06c4824ae8" />
 
- 
 - Vendor_list: Vendor master table that drives the payment scheduling assumptions in AP_detail
   - `Priority` (High/Medium/Low): Tiered by how critical the vendor is to operations (e.g., logistics and core raw-material suppliers are tiered High)
   - `Typical_Delay_Days`: Auto-populated from a priority lookup table (Priority → Typical_Delay_Days). Low-priority vendors carry longer typical delays, reflecting which payments the company would deprioritize first under cash pressure
   - Screenshot  
     <img width="727" height="94" alt="image" src="https://github.com/user-attachments/assets/2f5266f2-bed0-48b9-96c2-c4c9350606e5" />
 
-
-
-
-
 <br>
 
-**🌱 Step 3: Building & reviewing simulated data**  
-Generated the AR/AP detail rows and reviewed them closely rather than accepting the first draft. This review caught several logic issues that were fixed iteratively:
-
-Invoice/bill dates initially spanned the full year, including future dates — inconsistent with a fixed "as-of" reference date
-Payment dates were randomly distributed, when in practice AP/AR run on fixed batch cycles
-A few field labels didn't match their actual column content
-<br>
-
-**🌱 Step 4: Core formula logic**  
+**🌱 Step 3: Core formula logic**  
 Built the Due_Date calculation (IFS formula based on payment terms), Collection_Probability, and status logic (Open/Collected/Overdue) with cross-sheet lookups back to the Customer_list/Vendor_list tables.
 <br>
 
-**🌱 Step 5: Weekly rollup**  
+**🌱 Step 4: Weekly rollup**  
 Built the Weekly_Cash_Flow_Summary sheet: 13-week buckets, SUMPRODUCT-based AR inflow (probability-weighted) and AP outflow calculations, and a rolling Ending Balance with a below-threshold flag.
 <br>
 
-**🌱 Step 6: Scenario modeling**  
+**🌱 Step 5: Scenario modeling**  
 Added a Best/Base/Worst scenario toggle, driven by three parameters — collection probability adjustment, AR delay multiplier, and AP payment-stretch multiplier — so the forecast can be stress-tested without editing any underlying formulas.
 <br>
 
-**🌱 Step 7: Finalizing check**
+**🌱 Step 6: Finalizing check**
 Reduced the dataset to a manageable row count for a portfolio-scale demo, then re-validated that all formulas and logic still held after the trim.
 <br>
