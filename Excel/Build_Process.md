@@ -35,7 +35,18 @@
 
 
 - Customer_list: Customer master table that drives the collection assumptions in AR_detail
+  - `Payment Habit` (Good/Average/Poor): Tiered by historical payment behavior
+  - `Collection_Probability` / `Typical_Delay_Days`: Auto-populated from a tier lookup table (Habit → Base_Probability → Typical_Delay_Days), ensuring customers in the same tier are treated consistently rather than being set independently
+  - Screenshot
+    <img width="1024" height="100" alt="image" src="https://github.com/user-attachments/assets/1ca9ee43-7817-4ad9-8d9f-0b06c4824ae8" />
+
+ 
 - Vendor_list: Vendor master table that drives the payment scheduling assumptions in AP_detail
+  - `Priority` (High/Medium/Low): Tiered by how critical the vendor is to operations (e.g., logistics and core raw-material suppliers are tiered High)
+  - `Typical_Delay_Days`: Auto-populated from a priority lookup table (Priority → Typical_Delay_Days). Low-priority vendors carry longer typical delays, reflecting which payments the company would deprioritize first under cash pressure
+  - Screenshot
+    <img width="727" height="94" alt="image" src="https://github.com/user-attachments/assets/2f5266f2-bed0-48b9-96c2-c4c9350606e5" />
+
 
 
 
