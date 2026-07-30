@@ -48,6 +48,7 @@
 <br>
 
 **🌱 Step 3: Core formula logic**  
+- Not every column in AR_detail/AP_detail is calculated — some are sourced directly from the ERP export (e.g., Invoice_ID, Amount, Status), reflecting actual transaction records. Others are analytical fields layered on top to support forecasting (e.g., Due_Date when not already provided, Collection_Probability, Expected_Collection_Date). The logic below covers the calculated fields.
 - Due_Date calculation
   - If the ERP export doesn't already include this column, calculate it using an `IFS` formula based on payment terms:
     ```excel
@@ -63,7 +64,7 @@
     ```
     <img width="1224" height="117" alt="image" src="https://github.com/user-attachments/assets/5b8e054b-692f-4e30-be14-a6e8afd5f32c" />
 
-- Status logic (Open/Collected/Overdue) with cross-sheet lookups back to the Customer_list/Vendor_list tables
+- Status logic (Open/Collected/Overdue) is also sourced directly from the ERP export, same as Invoice_ID and Amount — it reflects the actual transaction state rather than being a calculated field.
 <br>
 
 **🌱 Step 4: Weekly rollup**  
