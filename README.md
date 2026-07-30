@@ -1,14 +1,14 @@
 ### 🪴 Problem Statement
 
-In my previous finance role, I noticed that traditional cash monitoring tends to be reactive, I think it's a pain point common among SMEs.
+In my previous finance role, I noticed that traditional cash monitoring tends to be reactive. I believe it's a pain point common among SMEs.
 <br>
 
 Finance teams check the current bank balance and react only when problems arise, often discovering cash shortfalls after they've already happened. This forces last-minute scrambles like emergency overdrafts or delayed vendor payments, which can damage supplier relationships and credit standing.
 <br>
 
-The real question finance needs answered isn't "how much cash do we have today? but is "**Will we have enough cash two weeks from now?**". Thus, here are the solution:
-- Tracking cash coming in and going out day by day.
-- Laying out AR collections and AP obligations across a forward-looking timeline.
+The real question finance needs answered isn't "how much cash do we have today?" but **"will we have enough cash two weeks from now?"** Thus, here is the solution:
+- Tracking cash coming in and going out day by day
+- Laying out AR collections and AP obligations across a forward-looking timeline
 <br>
 
 ### 🪴 My idea about this project
