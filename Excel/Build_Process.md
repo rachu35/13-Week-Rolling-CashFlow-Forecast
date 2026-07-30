@@ -49,14 +49,15 @@
 
 **🌱 Step 3: Core formula logic**  
 - Due_Date calculation
-  - If ERP data doesn't have this colunm, using "IFS" formula based on payment terms"
+  - If the ERP export doesn't already include this column, calculate it using an `IFS` formula based on payment terms:
     ```excel
     =IFS(G2="EM15",EOMONTH(E2,0)+15, G2="EM30",EOMONTH(E2,0)+30, G2="EM45",EOMONTH(E2,0)+45, G2="EM60",EOMONTH(E2,0)+60, G2="OA15",E2+15, G2="OA30",E2+30, G2="OA60",E2+60 )
     ```
     <img width="1257" height="102" alt="image" src="https://github.com/user-attachments/assets/908edde7-ed58-4ef7-9298-9920c04de502" />
-   - If ERP data has this colunm, just copy & paste
+   - If the ERP export already includes this column, just copy and paste it directly.
+
 - Collection_Probability
-  - This is only for AR part. The collection prob means how much prob we can receive the money and avoid be bad debts
+  - This applies only to AR. Collection probability estimates how likely we are to receive payment, helping flag which invoices carry higher bad-debt risk.
     ```excel
     =INDEX(Customer_list!$G$2:$G$21,MATCH(B2,Customer_list!$B$2:$B$21,0))
     ```
