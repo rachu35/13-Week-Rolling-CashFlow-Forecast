@@ -44,7 +44,7 @@
 - Vendor_list: Vendor master table that drives the payment scheduling assumptions in AP_detail
   - `Priority` (High/Medium/Low): Tiered by how critical the vendor is to operations (e.g., logistics and core raw-material suppliers are tiered High)
   - `Typical_Delay_Days`: Auto-populated from a priority lookup table (Priority → Typical_Delay_Days). Low-priority vendors carry longer typical delays, reflecting which payments the company would deprioritize first under cash pressure
-  - Screenshot
+  - Screenshot  
     <img width="727" height="94" alt="image" src="https://github.com/user-attachments/assets/2f5266f2-bed0-48b9-96c2-c4c9350606e5" />
 
 
