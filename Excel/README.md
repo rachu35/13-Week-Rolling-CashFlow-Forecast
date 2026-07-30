@@ -9,7 +9,7 @@
 1. **Date plausibility**: The first draft of simulated data had invoice dates spread across the entire year (including future dates), which contradicted the model's "today" reference point. Fixed by constraining invoice/bill dates to roughly the 4 months preceding the as-of date, so the Status logic holds up.
 2. **Payment dates shouldn't be random**: In practice, both AP and AR run on fixed batch payment cycles (e.g., the 10th and 25th of each month), not on arbitrary days. Adjusted the model so each customer/vendor is tied to a fixed set of payment-run days.
 3. **Field labels not matching actual content**: Caught a case where the Vendor_Code and Vendor_Name column headers were swapped — a reminder to verify each column's actual content against its label rather than assuming the header is correct.
-<img width="521" height="170" alt="image" src="https://github.com/user-attachments/assets/928205a4-b341-4dd8-bfbf-0f2c7c749bcc" />.
+<img width="603" height="299" alt="image" src="https://github.com/user-attachments/assets/50d4003e-a863-4833-874d-8e140d1d0993" />.
 4. **Logical consistency checks**: Ensured Status (Open/Collected/Overdue) always lines up with Actual_Collection_Date/Actual_Payment_Date, so there are no contradictions like a row marked "Open" that still shows a collection date.
 
 **🌱 Modeling Assumptions**
