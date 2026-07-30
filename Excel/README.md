@@ -4,12 +4,13 @@
 **🌱 Simulated data logic**
 - AR/AP detail tables simulate raw transaction exports from an ERP system, with fields covering invoice/bill dates, due dates (auto-calculated from payment terms via an IFS formula), amounts, and status
 - Customers/vendors are tiered by payment behavior **(Good/Average/Poor for customers & High/Medium/Low Priority for vendors)**, with credit tier driving collection probability and typical delay days, so the data has internal logic rather than being independently randomized
+  <img width="1204" height="283" alt="image" src="https://github.com/user-attachments/assets/666f93e9-7196-41ac-8d0e-27d1f40a0b71" />
+<br>
 
 **🌱 Issues identified and fixed during development**
 1. **Date plausibility**: The first draft of simulated data had invoice dates spread across the entire year (including future dates), which contradicted the model's "today" reference point. Fixed by constraining invoice/bill dates to roughly the 4 months preceding the as-of date, so the Status logic holds up.
 2. **Payment dates shouldn't be random**: In practice, both AP and AR run on fixed batch payment cycles (e.g., the 10th and 25th of each month), not on arbitrary days. Adjusted the model so each customer/vendor is tied to a fixed set of payment-run days.
 3. **Field labels not matching actual content**: Caught a case where the Vendor_Code and Vendor_Name column headers were swapped — a reminder to verify each column's actual content against its label rather than assuming the header is correct.
-<img width="603" height="299" alt="image" src="https://github.com/user-attachments/assets/50d4003e-a863-4833-874d-8e140d1d0993" />.
 4. **Logical consistency checks**: Ensured Status (Open/Collected/Overdue) always lines up with Actual_Collection_Date/Actual_Payment_Date, so there are no contradictions like a row marked "Open" that still shows a collection date.
 
 **🌱 Modeling Assumptions**
