@@ -64,6 +64,14 @@
     ```
     <img width="1224" height="117" alt="image" src="https://github.com/user-attachments/assets/5b8e054b-692f-4e30-be14-a6e8afd5f32c" />
 
+- Expected_Collection_Date
+  - This applies only to AR. Collection probability estimates how likely we are to receive payment, helping flag which invoices carry higher bad-debt risk.
+    ```excel
+    =IF(J2="Collected",K2,IF(J2="Open",F2,F2+INDEX(Customer_list!$H$2:$H$21,MATCH(B2,Customer_list!$B$2:$B$21,0))*Weekly_Cash_Flow_Summary!$B$8))
+    ```
+    <img width="1227" height="148" alt="image" src="https://github.com/user-attachments/assets/3486d08f-6d78-4f43-a32d-0bf1416fa8c7" />
+
+
 - Status logic (Open/Collected/Overdue) is also sourced directly from the ERP export, same as Invoice_ID and Amount — it reflects the actual transaction state rather than being a calculated field.
 <br>
 
