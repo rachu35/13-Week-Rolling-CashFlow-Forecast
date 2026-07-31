@@ -79,7 +79,7 @@
 - Assumption inputs:
   - `As of Date`: The reference date the whole forecast is built from, all 13 weeks are calculated forward from this date
   - `Beginning Cash`: Starting cash balance
-  - `Min Cash Threshold`: The minimum cash level the company wants to stay above. Any week where Ending Balance falls below this gets flagged
+  - `Min Cash Threshold`: Set as a company assumption based on management's risk tolerance, not calculated from the data
   - `Scenario`: Dropdown selector (Best/Base/Worst) that drives the three parameters below
   - `Probability_Adjustment`: How much the base collection probability shifts under the selected scenario (e.g., +5% in Best case)
   - `AR_Delay_Multiplier`: How much longer (or shorter) overdue customers take to pay under the selected scenario, relative to their typical delay
