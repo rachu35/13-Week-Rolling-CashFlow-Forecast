@@ -77,21 +77,26 @@
 
 **🌱 Step 4: Weekly_Cash_Flow_Summary: 13-week buckets**  
 - Assumption inputs:
-  - `As of Date`: The reference date the whole forecast is built from — all 13 weeks are calculated forward from this date
-  - `Beginning Cash`: Starting cash balance. Currently a placeholder value, to be replaced once the Cash_Balance table is built
+  - `As of Date`: The reference date the whole forecast is built from, all 13 weeks are calculated forward from this date
+  - `Beginning Cash`: Starting cash balance
   - `Min Cash Threshold`: The minimum cash level the company wants to stay above. Any week where Ending Balance falls below this gets flagged
   - `Scenario`: Dropdown selector (Best/Base/Worst) that drives the three parameters below
   - `Probability_Adjustment`: How much the base collection probability shifts under the selected scenario (e.g., +5% in Best case)
   - `AR_Delay_Multiplier`: How much longer (or shorter) overdue customers take to pay under the selected scenario, relative to their typical delay
-  - `AP_Stretch_Multiplier`: How much the company deliberately stretches out vendor payments under the selected scenario, to preserve cash
+  - `AP_Stretch_Multiplier`: How much the company deliberately stretches out vendor payments under the selected scenario, to preserve cash  
+    <img width="443" height="247" alt="image" src="https://github.com/user-attachments/assets/1c936a92-1c36-4f1f-9fad-1c94fa5f1170" />
+
+
 - Weekly table
-  - `Week`: Week number, 1 through 13
-  - `Week Start / Week End`: The 7-day date range for that week
+  - `Week`: From W1 to W13
+  - `Week Start / Week End`: The 7 day date range for that week
   - `Inflow(AR)`: Total expected cash coming in that week, probability-weighted by Scenario_Adjusted_Probability
-  - `Outflow(AP)`: Total cash owed to vendors that week, counted in full (not probability-weighted)
+  - `Outflow(AP)`: Total cash owed to vendors that week, probability-weighted by Scenario_Adjusted_Probability
   - `Net Cash Flow`: Inflow(AR) minus Outflow(AP)
-  - `Ending Bal`: Running cash balance — prior week's Ending Bal plus this week's Net Cash Flow
-  - `Below Threshold` Flags "WARNING" if Ending Bal drops below Min Cash Threshold, otherwise "OK"
+  - `Ending Bal`: Prior week's Ending Bal plus this week's Net Cash Flow
+  - `Below Threshold` Flags "WARNING" if Ending Bal drops below Min Cash Threshold, otherwise "OK"  
+    <img width="700" height="229" alt="image" src="https://github.com/user-attachments/assets/ff1a3127-09c5-4b31-b495-7821f9246bd2" />
+
 
 
   
