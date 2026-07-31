@@ -119,7 +119,7 @@ Added a Best/Base/Worst scenario toggle, driven by three parameters, so the fore
   <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/0f25316a-9c33-4373-890a-233bc57c0461" />
   <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/f1272bec-b9bf-4150-a9cd-ceea9180b257" />  
 
-*As shown in the [AR vs. AP scenario comparison table above](#), switching scenarios shifts AR by discounting the amount and AP by shifting the timing. This results in different ending balance trajectories across the three cases.*
+*As shown in the **AR vs. AP scenario comparison table** above, switching scenarios shifts AR by discounting the amount and AP by shifting the timing. This results in different ending balance trajectories across the three cases.*
 
 
 <br>
