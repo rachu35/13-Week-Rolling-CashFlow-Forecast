@@ -93,7 +93,7 @@ AR_Risk_Label = AR_detail[Customer_Name] & " (" & AR_detail[Invoice_ID] & ")"
 AP_Risk_Label = AP_detail[Vendor_Name] & " (" & AP_detail[Bill_ID] & ")"
 ```
 **🌱 Semantic Model**  
-<img width="1323" height="652" alt="image" src="https://github.com/user-attachments/assets/fcffafe0-61dc-4ab6-a6ec-a7ab98453198" />
+<img width="1323" height="652" alt="image" src="https://github.com/user-attachments/assets/fcffafe0-61dc-4ab6-a6ec-a7ab98453198" />  
 **🌱 Different Scenerioes** 
 
 <img width="773" height="573" alt="image" src="https://github.com/user-attachments/assets/761b0cd1-e6c0-4e1e-93f5-754a50a97c78" />
