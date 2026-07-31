@@ -14,5 +14,5 @@ The Excel model proves the logic works, but it still requires someone to open th
 **🌱 Dashboard**
 <img width="1200" height="568" alt="image" src="https://github.com/user-attachments/assets/3a2c0558-64b6-46f5-b5ee-18c260895211" />
 <img width="1202" height="526" alt="image" src="https://github.com/user-attachments/assets/56fb2396-2865-4330-ba46-dc6b2162145b" />
-<img width="1323" height="652" alt="image" src="https://github.com/user-attachments/assets/fcffafe0-61dc-4ab6-a6ec-a7ab98453198" />
+
 
