@@ -96,8 +96,8 @@ AP_Risk_Label = AP_detail[Vendor_Name] & " (" & AP_detail[Bill_ID] & ")"
 <img width="1323" height="652" alt="image" src="https://github.com/user-attachments/assets/fcffafe0-61dc-4ab6-a6ec-a7ab98453198" />
 **🌱 Different Scenerioes** 
 
-<img width="773" height="574" alt="image" src="https://github.com/user-attachments/assets/761b0cd1-e6c0-4e1e-93f5-754a50a97c78" />
-<img width="794" height="573" alt="image" src="https://github.com/user-attachments/assets/f838b279-0bef-4230-83ba-07c0c3391825" />
-<img width="764" height="576" alt="image" src="https://github.com/user-attachments/assets/4c293472-a7e1-4c09-a602-f2f0a2792f87" />
+<img width="773" height="573" alt="image" src="https://github.com/user-attachments/assets/761b0cd1-e6c0-4e1e-93f5-754a50a97c78" />
+<img width="773" height="573" alt="image" src="https://github.com/user-attachments/assets/f838b279-0bef-4230-83ba-07c0c3391825" />
+<img width="773" height="573" alt="image" src="https://github.com/user-attachments/assets/4c293472-a7e1-4c09-a602-f2f0a2792f87" />
 
 
