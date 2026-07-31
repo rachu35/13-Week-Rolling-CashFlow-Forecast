@@ -117,12 +117,13 @@ Added a Best/Base/Worst scenario toggle, driven by three parameters, so the fore
 - AP payment-stretch multiplier  
   <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/3191effd-414e-491a-8466-abc093abdb24" />
   <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/0f25316a-9c33-4373-890a-233bc57c0461" />
-  <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/f1272bec-b9bf-4150-a9cd-ceea9180b257" />
+  <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/f1272bec-b9bf-4150-a9cd-ceea9180b257" />  
 
+*As shown in the [AR vs. AP scenario comparison table above](#), switching scenarios shifts AR by discounting the amount and AP by shifting the timing. This results in different ending balance trajectories across the three cases.*
 
 
 <br>
 
-**🌱 Step 6: Finalizing check**
+**🌱 Step 6: Finalizing check**  
 Reduced the dataset to a manageable row count for a portfolio-scale demo, then re-validated that all formulas and logic still held after the trim.
 <br>
