@@ -98,20 +98,29 @@
     <img width="700" height="229" alt="image" src="https://github.com/user-attachments/assets/ff1a3127-09c5-4b31-b495-7821f9246bd2" />
 
 *💧 Why AR and AP respond differently to scenario changes*
-- AR (Accounts Receivable): Money owed to you, which you don't control
-  - Whether a customer actually pays you is outside your control. They might go under, delay intentionally, or run into financial trouble and simply be unable to pay.
-  - That's genuine uncertainty, which is why it needs to be measured with a probability: "there's a 75% chance we actually collect this $100K invoice." That's why AR gets discounted by probability.
-
-- AP (Accounts Payable): Money you owe, which you control
-  - This money will get paid (barring the company deliberately defaulting, which isn't a real scenario). The only thing uncertain is when you choose to pay it.
-  - That's not a probability question, it's a decision. When cash is tight, you can deliberately choose to delay a payment to preserve cash, but the amount itself doesn't shrink or disappear — it just moves later.
+| Side by side | 	AR | AP |
+|---|---|---|
+| Definition | Money owed to you, which you don't control | Money you owe, which you control |
+| The core question | "Will this money actually come in?" (risk) | "When do I choose to pay this?" (decision) |
+| What's uncertain | Whether the full amount gets collected | When the payment happens |
+| What scenario modeling does | Discounts the amount (probability-weighted) | Shifts the date (changes Expected_Payment_Date) |
+| Example | There's a 75% chance we actually collect this $100K invoice. | When cash is tight, you can deliberately choose to delay a payment to preserve cash, but the amount itself doesn't shrink or disappear. |
 
 
   
 <br>
 
 **🌱 Step 5: Scenario modeling**  
-Added a Best/Base/Worst scenario toggle, driven by three parameters — collection probability adjustment, AR delay multiplier, and AP payment-stretch multiplier — so the forecast can be stress-tested without editing any underlying formulas.
+Added a Best/Base/Worst scenario toggle, driven by three parameters, so the forecast can be stress-tested without editing any underlying formulas:
+- collection probability adjustment
+- AR delay multiplier
+- AP payment-stretch multiplier  
+  <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/3191effd-414e-491a-8466-abc093abdb24" />
+  <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/0f25316a-9c33-4373-890a-233bc57c0461" />
+  <img width="697" height="158" alt="image" src="https://github.com/user-attachments/assets/f1272bec-b9bf-4150-a9cd-ceea9180b257" />
+
+
+
 <br>
 
 **🌱 Step 6: Finalizing check**
