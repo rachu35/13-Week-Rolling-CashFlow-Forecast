@@ -1,4 +1,4 @@
-### 🪴 Power BI  
+### 🪴 Power BI
 <br>
 
 The Excel model proves the logic works, but it still requires someone to open the file, trace the formulas, and manually flip the scenario inputs. Power BI turns that same model into something leadership can explore on their own — click a scenario, see the cash impact, no spreadsheet literacy required.  
