@@ -91,12 +91,20 @@
   - `Week`: From W1 to W13
   - `Week Start / Week End`: The 7 day date range for that week
   - `Inflow(AR)`: Total expected cash coming in that week, probability-weighted by Scenario_Adjusted_Probability
-  - `Outflow(AP)`: Total cash owed to vendors that week, probability-weighted by Scenario_Adjusted_Probability
+  - `Outflow(AP)`: Total cash owed to vendors that week, counted in full (not probability-weighted, since it's a fixed obligation rather than a collection risk)
   - `Net Cash Flow`: Inflow(AR) minus Outflow(AP)
   - `Ending Bal`: Prior week's Ending Bal plus this week's Net Cash Flow
   - `Below Threshold` Flags "WARNING" if Ending Bal drops below Min Cash Threshold, otherwise "OK"  
     <img width="700" height="229" alt="image" src="https://github.com/user-attachments/assets/ff1a3127-09c5-4b31-b495-7821f9246bd2" />
 
+*💧 Why AR and AP respond differently to scenario changes*
+- AR (Accounts Receivable): Money owed to you, which you don't control
+  - Whether a customer actually pays you is outside your control. They might go under, delay intentionally, or run into financial trouble and simply be unable to pay.
+  - That's genuine uncertainty, which is why it needs to be measured with a probability: "there's a 75% chance we actually collect this $100K invoice." That's why AR gets discounted by probability.
+
+- AP (Accounts Payable): Money you owe, which you control
+  - This money will get paid (barring the company deliberately defaulting, which isn't a real scenario). The only thing uncertain is when you choose to pay it.
+  - That's not a probability question, it's a decision. When cash is tight, you can deliberately choose to delay a payment to preserve cash, but the amount itself doesn't shrink or disappear — it just moves later.
 
 
   
